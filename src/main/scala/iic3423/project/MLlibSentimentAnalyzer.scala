@@ -43,7 +43,7 @@ object MLlibSentimentAnalyzer {
             .filter(!stopWordsList.contains(_))
     }
 
-    val hashingTF = new HashingTF()
+    val hashingTF = new HashingTF(16384)
 
     def transformFeatures(tweetText: Seq[String]): Vector = {
         hashingTF.transform(tweetText)
