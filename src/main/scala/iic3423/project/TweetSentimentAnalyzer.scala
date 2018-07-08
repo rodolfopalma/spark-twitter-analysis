@@ -8,6 +8,7 @@ import iic3423.project.utils._
 import org.apache.spark.streaming.{Durations, StreamingContext}
 import org.apache.spark.streaming.flume._
 
+// spark-submit --class "iic3423.project.TweetSentimentAnalyzer" --master local[2] target/scala-2.11/spark-twitter-analysis_2.11-1.0.jar quickstart.cloudera 8081 hdfs://quickstart.cloudera:8020/iic3423/predicted
 object TweetSentimentAnalyzer {
     def main(args: Array[String]) {
         if (args.length < 3) {
