@@ -1,0 +1,14 @@
+
+{
+    "embeddings": [
+      {
+        "tensorName": "Tweets-HashingTF",
+        "tensorShape": [
+          98,
+          16384
+        ],
+        "tensorPath": "https://raw.githubusercontent.com/rpalmaotero/spark-twitter-analysis/master/vectors.tsv",
+        "metadataPath": "https://raw.githubusercontent.com/rpalmaotero/spark-twitter-analysis/master/vectors_metadata.tsv"
+      }
+    ]
+  }
