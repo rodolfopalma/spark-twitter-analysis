@@ -9,10 +9,11 @@ import org.apache.spark.mllib.linalg.Vector
 
 object MLlibSentimentAnalyzer {
 
-    def computeSentiment(text: String, stopWordsList: Broadcast[List[String]], model: NaiveBayesModel): Int = {
+    def computeSentiment(text: String, stopWordsList: Broadcast[List[String]], model: NaiveBayesModel): (Int, Vector) = {
         val tweetInWords: Seq[String] = getBarebonesTweetText(text, stopWordsList.value)
-        val polarity = model.predict(MLlibSentimentAnalyzer.transformFeatures(tweetInWords))
-        normalizeMLlibSentiment(polarity)
+        val features = MLlibSentimentAnalyzer.transformFeatures(tweetInWords)
+        val polarity = model.predict(features)
+        (normalizeMLlibSentiment(polarity), features)
     }
 
     def normalizeMLlibSentiment(sentiment: Double) = {
